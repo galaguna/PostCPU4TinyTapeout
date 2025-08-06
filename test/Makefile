@@ -40,6 +40,12 @@ COMPILE_ARGS 		+= -I$(SRC_DIR)
 
 # Include the testbench sources:
 VERILOG_SOURCES += $(PWD)/tb.v
+VERILOG_SOURCES += $(PWD)/../src/Post_sys_4Tiny.v
+VERILOG_SOURCES += $(PWD)/../src/post_spi.v
+VERILOG_SOURCES += $(PWD)/../src/one_pulse.v
+VERILOG_SOURCES += $(PWD)/../src/myRAM.v
+VERILOG_SOURCES += $(PWD)/../src/MPM_cpu.v
+
 TOPLEVEL = tb
 
 # MODULE is the basename of the Python test file
