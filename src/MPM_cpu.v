@@ -16,14 +16,14 @@
 // Author: Gerardo Laguna
 // UAM lerma
 // Mexico
-// 29/07/2025
+// 6/08/2025
 //=============================================================================
 
 module Post_cpu
    (
     input wire clk, reset,
     input wire run,
-    output wire [7:0] state,
+    output wire [3:0] state,
     output wire [7:0] code_add,
     input wire [3:0] code,
     output wire [7:0] data_add,

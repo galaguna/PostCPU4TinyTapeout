@@ -1,11 +1,11 @@
 /*
- * Copyright (c) 2024 Gerardo Laguna-Sanchez
+ * Copyright (c) 2025 Gerardo Laguna-Sanchez
  * SPDX-License-Identifier: Apache-2.0
  */
 
 `default_nettype none
 
-module tt_um_PostSys (
+module tt_um_galaguna_PostSys (
     input  wire [7:0] ui_in,    // Dedicated inputs
     output wire [7:0] uo_out,   // Dedicated outputs
     input  wire [7:0] uio_in,   // IOs: Input path
@@ -18,7 +18,7 @@ module tt_um_PostSys (
 
     //signals:
     wire loc_clk;
-    wire loc_NRst, loc_PRst; 
+    wire loc_NRst; 
     wire mode; 
     wire exec;
     wire [2:0] out_ctrl;
@@ -42,7 +42,6 @@ module tt_um_PostSys (
   // interconnection logic:
     assign loc_clk = clk; //1525.879 Hz
     assign loc_NRst = rst_n;
-    assign loc_PRst = ~loc_NRst;
 
     assign out_ctrl = ui_in[2:0];
     assign spi_sck  = ui_in[3];
@@ -51,16 +50,14 @@ module tt_um_PostSys (
     assign exec     = ui_in[6];
     assign mode     = ui_in[7];
 
-    assign state_nibble = uio_out[3:0];
-    assign out3b        = uio_out[6:4];
-    assign spi_miso     = uio_out[7];
-
-    assign out8b        = uo_out;
-
   //output logic:
-  assign uio_oe  = 8'b11111111;
+    assign uio_oe  = 8'b11111111;
+    assign uo_out = out8b;
+    assign uio_out[3:0] = state_nibble;
+    assign uio_out[6:4] = out3b;
+    assign uio_out[7] = spi_miso;
 
   // List all unused inputs to prevent warnings
-  wire _unused = &{ena, uio_in, 1'b0};
+  wire _unused = &{ena, uio_in[0], uio_in[1], uio_in[2], uio_in[3], uio_in[4], uio_in[5], uio_in[6], uio_in[7], 1'b0};
 
 endmodule
