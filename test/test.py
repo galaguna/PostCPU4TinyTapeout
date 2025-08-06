@@ -78,8 +78,8 @@ async def test_project(dut):
     #    |-------------------------------|
     #    |         2 Bytes SPI word      |
     #    |-------------------------------|
-    #    | RW  |  Address  |     Data    |                                                        |
-    #    | bit |   bits    |     bits    |                                                    |
+    #    | RW  |  Address  |     Data    |                                                        
+    #    | bit |   bits    |     bits    |                                                    
     #    |-----|-----------|-------------|
     #    | b15 | [b14:b04] |  [b03:b00]  |
     #    |-----|-----------|-------------|
@@ -90,13 +90,13 @@ async def test_project(dut):
     #     SPI 11 bits address map:
     #
     #     -----+-----------+--
-    #     0x000|           |   Code                                                               |
-    #          |    ROM    |   space                                                              |
-    #     0x3FF|           |                                                             |
+    #     0x000|           |   Code                                                               
+    #          |    ROM    |   space                                                              
+    #     0x3FF|           |                                                             
     #     -----|-----------|--
     #     0x400|           |   Data 
-    #          |    RAM    |   space                                                              |
-    #     0x7FF|           |                                                                 |
+    #          |    RAM    |   space                                                              
+    #     0x7FF|           |                                                                 
     #     -----|-----------|--
     #    
     #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
