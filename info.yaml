@@ -1,6 +1,6 @@
 # Tiny Tapeout project information
 project:
-  title:        "Post Machine CPU Based"      # Project title
+  title:        "Post's Machine CPU Based"      # Project title
   author:       "Gerardo Laguna-Sanchez"      # Your name
   discord:      "galaguna"      # Your discord username, for communication and automatically assigning you a Tapeout role (optional)
   description:  "A simple RISC CPU, based on machine of Emil L. Post, supported by SPI communication and RAM for both code and data spaces"      # One line description of what your project does
