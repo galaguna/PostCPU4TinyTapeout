@@ -1,4 +1,4 @@
-#tt_um_galaguna_PostSys: A Post's Machine CPU Based
+# tt_um_galaguna_PostSys: A Post's Machine CPU Based
 
 ## How it works
 
@@ -79,5 +79,5 @@ More detailed information about the instruction set and basic architecture of EP
 https://github.com/galaguna/Posts_Machine_Reloaded_Booklet
 
 
-##References
+## References
 - Post, E.L. (1936). Finite combinatory processes – formulation 1. The Journal of Symbolic Logic, Vol. 1, No. 3, pp. 103-105.
