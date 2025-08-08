@@ -7,6 +7,10 @@ TOPLEVEL_LANG ?= verilog
 SRC_DIR = $(PWD)/../src
 PROJECT_SOURCES = project.v
 PROJECT_SOURCES += Post_sys_4Tiny.v
+PROJECT_SOURCES += myRAM.v
+PROJECT_SOURCES += post_spi.v
+PROJECT_SOURCES += MPM_cpu.v
+PROJECT_SOURCES += one_pulse.v
 
 ifneq ($(GATES),yes)
 
