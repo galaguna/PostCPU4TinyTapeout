@@ -4,18 +4,18 @@
 // Entidad Post_sys_4Tiny con CPU Post, memoria y comunicacion SPI.
 //  En esta version:
 //  * La entrada de reset (NRST) es activa en bajo.
-//  * Se agregan puertos de salida OUT8B y OUT3B para monitorizaci�n de buses internos.
+//  * Se agregan puertos de salida OUT8B y OUT3B para monitorizacion de buses internos.
 //  * Se agrega puerto de entrada OUT_CTRL para seleccionar lo que se presenta en
 //    las salidas anteriores.
-//  * El reloj del CPU se asume con una frecuencia f_CLK=1.5625MHz 
-//  * La velocidad para la comunicacion SPI resulta en f_SCK=195.3125 kHz con f_CLK=1.5625MHz
+//  * El reloj del CPU se asume con una frecuencia f_CLK=1.5625MHz. 
+//  * La velocidad para la comunicacion SPI resulta en f_SCK=195.3125 kHz con f_CLK=1.5625MHz.
 //=============================================================================
 // Codigo beta
 //=============================================================================
 // Author: Gerardo A. Laguna S.
 // Universidad Autonoma Metropolitana
 // Unidad Lerma
-// 30.julio.2025
+// 11.agosto.2025
 //=============================================================================
 //////////////////////////////////////////////////////////////////////////////////
 
@@ -69,8 +69,6 @@ module Post_sys_4Tiny
     wire spi2rom_we;
     wire mxd_rom_we;
   
-    wire [25:0] div_clk;
-    
     //instantiations:
     sync_ram #(.DATA_WIDTH(1), .ADD_WIDTH(8)) my_ram
     (.clk(mxd_mem_clk), .we(mxd_ram_we), .datain(mxd_ram_din), .address(mxd_ram_add), .dataout(cpu2ram_dout));
