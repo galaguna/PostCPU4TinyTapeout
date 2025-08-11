@@ -57,7 +57,9 @@ For SPI transfers, the following specification is assumed:
 
 In the case of a read sequence, the read command must be followed by a stuff SPI word (let's say, all ones or all zeros word). The read information will be in the data field of the SPI word transmitted by the slave SPI.  
 
-For example, in the following figure, the timing diagram with the SPI transfers for a write/read sequence is illustrated:
+The SCK frequency is fixed in CLK/8. For example, if the CLK frequency is 50 MHz, the SCK frequency is 6.25 MHz. SPI interface also works with low frequency, for example, if  CLK frequency is 1525.879 Hz, the SCK frequency is 190.8 Hz.
+
+As reference, in the following figure, the timing diagram with the SPI transfers for a write/read sequence is illustrated:
 
 ![Figure-8](SPI_WRRD_ROM_0x0A59_0x8A5F.png)
 
