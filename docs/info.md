@@ -2,13 +2,13 @@
 
 ## How it works
 
-A small architecture for practical implementation of a central processing unit (CPU) is proposed based on an improved Post's Machine. The Post's Machine is like Turing's machine but with minor complexity because of a shortest instruction set. The proposed Post’s Machine project has potential as pedagogical resource, to experiment and verify the fundamental concepts of a simple computer architecture with its instruction set (in this case, only eight instructions). 
+A small architecture for practical implementation of a central processing unit (CPU) is proposed based on an improved Post's Machine. The Post's Machine is like Turing's machine but with minor complexity because of a shortest instruction set. The proposed Post’s Machine project has potential as teaching resource, to experiment and verify the fundamental concepts of a simple computer architecture with its instruction set (in this case, only eight instructions). 
 
 In the seminal work of Emil L. Post (Post, 1936), no real machine was specified but conceptualization and mental experiments were developed. Although the original Post's machine is sustained on the manipulation of an infinite set of boxes, these boxes may be represented, like in Turing's machine, by means of a tape with an infinite number of cells, each one numbered and with the possibility of being observed and marked/erased by a kind of reading/writing head.
 
 To implement this project, some improvements are proposed to the original Post's machine. The introduced variant is called Enhanced Post's Machine or EPM. Firstly, the tape with cells is replaced with a Nx1 memory (i.e. N one-bit registers). In this representation, each cell corresponds to a memory register while the head corresponds to a data pointer (DP) that indicates the address (a no-negative integer) of the current working register in the data space. In this way, the first register is assigned to the address 0 while the last to N-1. The data space may be considered as a circular buffer, thus, when the DP exceeds the last address, it returns to the address 0.
 
-Secondly, the code space is implemented by Nx4 memory (i.e. N four-bit registers). In this case a instruction pointer (IP) addresses the current instruction. Every instruction is executed in order, beginning with that located in address 0 and following the next, in ascending order, except when a jump instruction appears, in which case the IP is loaded with the target address.
+Secondly, the code space is implemented by Nx4 memory (i.e. N four-bit registers). In this case an instruction pointer (IP) addresses the current instruction. Every instruction is executed in order, beginning with that located in address 0 and following the next, in ascending order, except when a jump instruction appears, in which case the IP is loaded with the target address.
 
 The proposed instruction set is composed of eight instructions that can be conveniently codified with nibbles (i.e. 4 bits tuples). In the case of the jump instructions, unconditional and conditional, every instruction code is followed by two additional nibbles with absolute addressing information. Specifically, the first address nibble includes the most significant bits (MSB) while the second the least significant bits (LSB). The following table summarizes the proposed instruction codification:
 
@@ -26,7 +26,7 @@ To enable user access to both code and data memory spaces, before and after the 
  
 The multiplexors are controlled by MODE signal to set the operation mode (programming/execution). Additionally, RUN signal is dedicated to start the code execution. 
 
-In practice, to work with the input and output ports of the Tiny Tapeout template, the entire system has been encapsulated in the Post_sys_4Tiny module, which is represented schematically below:
+In practice, to work with the input and output ports of the Tiny Tapeout template, the entire system has been packaged in the Post_sys_4Tiny module, which is represented schematically below:
 
 ![Figure-4](Post_sys_4Tiny_module.png)
 
@@ -57,7 +57,7 @@ For SPI transfers, the following specification is assumed:
 
 In the case of a read sequence, the read command must be followed by a stuff SPI word (let's say, all ones or all zeros word). The read information will be in the data field of the SPI word transmitted by the slave SPI.  
 
-The SCK frequency is fixed in CLK/8. For example, if the CLK frequency is 50 MHz, the SCK frequency is 6.25 MHz. SPI interface also works with low frequency, for example, if  CLK frequency is 1525.879 Hz, the SCK frequency is 190.8 Hz.
+Within the slave_spi4post module, the SCK frequency is assumed as CLK/8. For example, if the CLK frequency is 50 MHz, the SCK frequency is 6.25 MHz. SPI interface also works with low frequency, for example, if CLK frequency is 1525.879 Hz, the SCK frequency is 190.8 Hz.
 
 As reference, in the following figure, the timing diagram with the SPI transfers for a write/read sequence is illustrated:
 
@@ -73,12 +73,18 @@ Once both code a data are loaded in corresponding ROM and RAM memory, the code m
 
 As a quick reference, although rough but illustrative, you can refer to the test code test.py.
 
+## Additional hardware
+
+As practical reference, a master SPI module, both VHDL and Verilog code, may be found in the following repository:
+
+https://github.com/galaguna/Packaged_Enhanced_Posts_Machine.git
+
 ## Additional information
 
 More detailed information about the instruction set and basic architecture of EPM CPU may be found in the following repository:
  
 - Laguna-Sanchez, G.A. (2020). The Post’s Machine Reloaded Booklet.
-https://github.com/galaguna/Posts_Machine_Reloaded_Booklet
+https://github.com/galaguna/Posts_Machine_Reloaded_Booklet.git
 
 
 ## References
